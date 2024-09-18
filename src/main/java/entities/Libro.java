@@ -14,7 +14,7 @@ import java.util.Date;
 @Setter
 @Builder
 @Audited
-public class Libro implements Serializable{
+public class Libro extends Persona implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,4 +33,7 @@ public class Libro implements Serializable{
     @Column
     private String autor;
 
+    public Libro(long id, String nombre, String apellido, int dni, Libro libro) {
+        super(id, nombre, apellido, dni, libro);
+    }
 }
